@@ -1,12 +1,16 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
+
         <a class="navbar-brand d-flex align-items-center" href="/">
-    <img src="{% static 'techbrosApp/img/logo.png' %}" alt="TechBros" height="100px">
-</a>
+            <img src="{% static 'techbrosApp/img/logo.png' %}"
+                 alt="TechBros"
+                 class="navbar-logo">
+        </a>
 
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -16,10 +20,10 @@
                     <a class="nav-link active" href="/">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Servicios</a>
+                    <a class="nav-link" href="#servicios">Servicios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link" href="#contacto">Contacto</a>
                 </li>
             </ul>
         </div>

@@ -1,10 +1,12 @@
 {% extends 'techbrosApp/base.html' %}
 
-{% block title %}
-Inicio | TechBros
+{% block hero %}
+    {% include 'techbrosApp/partials/hero.html' %}
 {% endblock %}
 
 {% block content %}
-<h1>Bienvenido a TechBros 🚀</h1>
-<p>Navbar cargada desde otro archivo</p>
+<section class="container mt-5" id="servicios">
+    <h2>Bienvenido a TechBros</h2>
+    <p>Contenido principal aquí…</p>
+</section>
 {% endblock %}
