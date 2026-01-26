@@ -1,0 +1,16 @@
+/* Color de la navbar */
+.navbar {
+    background-color: #861616 !important; /* color personalizado */
+}
+
+/* Bordes redondeados */
+.navbar {
+    border-radius: 0 0 20px 20px;
+}
+
+/* Sombra */
+.navbar {
+    box-shadow: 0 4px 10px rgba(214, 72, 72, 0.3);
+    font-family: 'Inter', sans-serif;
+    padding: 1px;   
+}
