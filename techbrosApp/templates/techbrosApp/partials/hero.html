@@ -1,20 +1,17 @@
 {% load static %}
-<section class="hero-section">
-    <div class="container text-center">
-
-        <img src="{% static 'techbrosApp/img/logo.png' %}"
-             alt="TechBros"
-             class="hero-logo">
-
-        <h1 class="mt-4">Soluciones tecnológicas profesionales</h1>
-
-        <p class="lead">
-            Limpieza, mantenimiento y soporte para tu equipo
-        </p>
-
-        <a href="#servicios" class="btn btn-primary mt-3">
-            Ver servicios
-        </a>
-
+<section class="hero" id="hero-bg">
+    <img src="{% static 'techbrosApp/img/Hero.png' %}" 
+     alt="TechBros" 
+     class="hero-logo">
+    <div class="ruleta">
+        <div class="ram"><span>RAM</span></div>
+        <div class="cpu"><span>CPU</span></div>
+        <div class="gpu"><span>GPU</span></div>
+        <div class="ssd"><span>SSD</span></div>
+        <div class="mas"><span>Mas</span></div>
+        <div class="case"><span>Case</span></div>
+        <div class="psu"><span>PSU</span></div>
+        <div class="mb"><span>MB</span></div>
     </div>
 </section>
+<script src="{% static 'techbrosApp/js/main.js' %}"></script>
