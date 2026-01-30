@@ -1,17 +1,15 @@
 {% load static %}
-<section class="hero" id="hero-bg">
-    <img src="{% static 'techbrosApp/img/Hero.png' %}" 
-     alt="TechBros" 
-     class="hero-logo">
-    <div class="ruleta">
-        <div class="ram"><span>RAM</span></div>
-        <div class="cpu"><span>CPU</span></div>
-        <div class="gpu"><span>GPU</span></div>
-        <div class="ssd"><span>SSD</span></div>
-        <div class="mas"><span>Mas</span></div>
-        <div class="case"><span>Case</span></div>
-        <div class="psu"><span>PSU</span></div>
-        <div class="mb"><span>MB</span></div>
+<section class="hero" id="hero">
+
+       <div class="hero-content">
+        <img src="{% static 'techbrosApp/img/Logo.png' %}" 
+             alt="TechBros" 
+             class="hero-logo">
+        <!--<img src="{% static 'techbrosApp/img/Slogan.png' %}" alt="Slogan" class="Slogan">-->
+
+        <a href="#contacto" class="hero-btn">
+            ¿Necesitas una limpieza?
+        </a>
     </div>
+
 </section>
-<script src="{% static 'techbrosApp/js/main.js' %}"></script>

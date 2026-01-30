@@ -1,16 +1,33 @@
+document.addEventListener("DOMContentLoaded", function () {
+    if (document.querySelector("#hero")) {
+        VANTA.WAVES({
+            el: "#hero",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x4a141f,
+            shininess: 30,
+            waveHeight: 15,
+            waveSpeed: 1,
+            zoom: 1
+        });
+    }
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    VANTA.BIRDS({
-        el: "#hero-bg",
-        backgroundColor: 0x63291f,
-        backgroundAlpha: 1,
-        color1: 0xff6a00,
-        color2: 0xffb347,
-        quantity: 4,
-        birdSize: 1,
-        wingSpan: 30,
-        speedLimit: 5,
-        separation: 20,
-        alignment: 20,
-        cohesion: 20
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
     });
 });
+

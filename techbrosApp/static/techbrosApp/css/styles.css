@@ -1,127 +1,128 @@
+/* ===============================
+   ESTILOS GENERALES
+================================ */
 body {
-    background-color: #FAC6BD!important;
+    background-color: #FAC6BD !important;
     font-family: 'Inter', sans-serif !important;
     margin: 0;
     padding: 0;
 }
+/* ===============================
+   NAVBAR
+================================ */
 .navbar {
-    min-height: 20px;
-    position: relative;
-    box-shadow: 0 4px 10px rgba(214, 72, 72, 0.3);
- 
-    padding: 1px;   
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-    background-color: #7a1b0a !important; /* color personalizado */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background-color: transparent !important;
+    box-shadow: none;
+
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+.navbar.scrolled {
+    background-color: rgba(105, 20, 20, 0.5) !important;
+    box-shadow: 0 4px 10px rgba(34, 32, 32, 0.3);
+}
+
 .navbar-logo {
     position: absolute;
-    height: 160px;  
+    height: 160px;
     width: auto;
 }
-.hero{
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;   /* horizontal */
-    align-items: end;   /* arriba */
-}
-.ruleta{
-    margin-bottom: 50px;
-    width: 350px;
-    height: 350px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 0%;              /* ⬅ empieza cuadrado */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+/* ===============================
+   HERO
+================================ */
+.hero {
     position: relative;
-    overflow: hidden;
-    animation: formarCirculo 2s ease-out forwards;
-}
-@keyframes formarCirculo {
-    from {
-        border-radius: 0%;
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        border-radius: 50%;
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-.ruleta div{
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    top: 0;
-    left: 50%;
-
-    transform-origin: 0% 100%;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    height: 100vh;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-end;
 
-    color: white;
-    font-weight: bold;
+    overflow: hidden;
 }
-.ruleta div span{
-    font-size: 14px;
-    letter-spacing: 1px;
-    user-select: none;
-}
-
-.ram  span { transform: rotate(0deg); transition: 0.2s ease-out; }
-.ram span:hover { font-size: 22px; }
-.cpu  span { transform: rotate(-45deg); transition: 0.2s ease-out; }
-.cpu span:hover { font-size: 22px; }
-.gpu  span { transform: rotate(-90deg); transition: 0.2s ease-out; }
-.gpu span:hover { font-size: 22px; }
-.ssd  span { transform: rotate(-135deg); transition: 0.2s ease-out; }
-.ssd span:hover { font-size: 22px; }
-.mas  span { transform: rotate(-180deg); transition: 0.2s ease-out; }
-.mas span:hover { font-size: 22px; }
-.case span { transform: rotate(-225deg); transition: 0.2s ease-out; }
-.case span:hover { font-size: 22px; }
-.psu  span { transform: rotate(-270deg); transition: 0.2s ease-out; }
-.psu span:hover { font-size: 22px; }
-.mb   span { transform: rotate(-315deg); transition: 0.2s ease-out; }
-.mb span:hover { font-size: 22px; }
-
-.ram  { transform: rotate(0deg); }
-.cpu  { transform: rotate(45deg); }
-.gpu  { transform: rotate(90deg); }
-.ssd  { transform: rotate(135deg); }
-.mas  { transform: rotate(180deg); }
-.case { transform: rotate(225deg); }
-.psu  { transform: rotate(270deg); }
-.mb   { transform: rotate(315deg); }
-
-.hero-logo {
+/* ===============================
+   HERO CONTENT (LOGO + BOTÓN)
+================================ */
+.hero-content {
     position: absolute;
     top: 70px;
     left: 50%;
-    transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%);
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    z-index: 3;
+}
+/* ===============================
+   HERO LOGO
+================================ */
+.hero-logo {
     width: 820px;
-    max-width: none;   /* ⬅ CLAVE */
     height: auto;
 
-    z-index: 2;
     opacity: 0;
-
     animation: logoEntrada 1.6s ease-out forwards;
 }
 
 @keyframes logoEntrada {
     from {
         opacity: 0;
-        transform: translateX(-50%) translateY(-15px) scale(0.95);
+        transform: translateY(-15px) scale(0.95);
     }
     to {
         opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1.1);
+        transform: translateY(0) scale(1);
     }
 }
+/* ===============================
+   HERO BOTÓN
+================================ */
+.hero-btn {
+    margin-top: 25px;
+
+    padding: 14px 34px;
+    border-radius: 40px;
+
+    background-color: rgba(105, 20, 20, 0.5);
+    color: #000000;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    animation: botonEntrada 1.6s ease-out forwards;
+    animation-delay: 0.6s;
+
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: rgba(105, 20, 20);
+}
+
+@keyframes botonEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
