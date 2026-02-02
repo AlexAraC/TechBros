@@ -2,7 +2,7 @@
    ESTILOS GENERALES
 ================================ */
 body {
-    background-color: #FAC6BD !important;
+    background-color: #d39494 !important;
     font-family: 'Inter', sans-serif !important;
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-
+    
     background-color: transparent !important;
     box-shadow: none;
 
@@ -32,6 +32,29 @@ body {
     height: 160px;
     width: auto;
 }
+.nav-link {
+    position: relative;
+    color: #000000 !important;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+/* línea oculta */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: width 0.3s ease;
+}
+
+/* animación izquierda → derecha */
+.nav-link:hover::after {
+    width: 100%;
+}
 /* ===============================
    HERO
 ================================ */
@@ -42,13 +65,15 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-
+    box-shadow: rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
+
 /* ===============================
    HERO CONTENT (LOGO + BOTÓN)
 ================================ */
 .hero-content {
+    
     position: absolute;
     top: 70px;
     left: 50%;
@@ -68,7 +93,6 @@ body {
 .hero-logo {
     width: 820px;
     height: auto;
-
     opacity: 0;
     animation: logoEntrada 1.6s ease-out forwards;
 }
@@ -126,3 +150,43 @@ body {
 }
 
 
+.grid-gallery {
+  --size: 100px;
+  display: grid;
+  grid-template-columns: repeat(6, var(--size));
+  grid-auto-rows: var(--size);
+  margin-bottom: var(--size);
+  place-items: start center;
+  gap: 5px;
+  
+  &:has(:hover) img:not(:hover),
+  &:has(:focus) img:not(:focus){
+    filter: brightness(0.5) contrast(0.5);
+  }
+
+  & img {
+    object-fit: cover;
+    width: calc(var(--size) * 2);
+    height: calc(var(--size) * 2);
+    clip-path: path("M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z");
+    transition: clip-path 0.25s, filter 0.75s;
+    grid-column: auto / span 2;
+    border-radius: 5px;
+
+    &:nth-child(5n - 1) { 
+      grid-column: 2 / span 2 
+    }
+
+    &:hover,
+    &:focus {
+      clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
+      z-index: 1;
+      transition: clip-path 0.25s, filter 0.25s;
+    }
+    
+    &:focus {
+      outline: 1px dashed black;
+      outline-offset: -5px;
+    }
+  }
+}

@@ -1,12 +1,20 @@
 {% extends 'techbrosApp/base.html' %}
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'techbrosApp/css/styles.css' %}">
 {% block hero %}
     {% include 'techbrosApp/partials/hero.html' %}
 {% endblock %}
 
 {% block content %}
-<section class="container mt-5" id="servicios">
-    <h2>Bienvenido a TechBros</h2>
-    <p>Contenido principal aquí…</p>
-</section>
+<article class="grid-gallery">
+  <img src="{% static 'techbrosApp/img/delicuente.jpeg' %}" alt="description of picture 1">
+  <img src="{% static 'techbrosApp/img/depression.jpeg' %}" alt="description of picture 2">
+  <img src="{% static 'techbrosApp/img/felipe.jpeg' %}" alt="description of picture 3">
+  <img src="{% static 'techbrosApp/img/felipehumillado.jpeg' %}" alt="description of picture 4">
+  <img src="{% static 'techbrosApp/img/hombredesnutrido.jpeg' %}" alt="description of picture 5">
+  <img src="{% static 'techbrosApp/img/hombreguapo.jpeg' %}" alt="description of picture 6">
+  <img src="{% static 'techbrosApp/img/personamala.jpeg' %}" alt="description of picture 7">
+  <img src="{% static 'techbrosApp/img/sexy.jpeg' %}" alt="description of picture 8">
+</article>
+
 {% endblock %}
