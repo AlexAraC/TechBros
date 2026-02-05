@@ -1,11 +1,17 @@
 {% extends 'techbrosApp/base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'techbrosApp/css/styles.css' %}">
+
 {% block hero %}
     {% include 'techbrosApp/partials/hero.html' %}
-{% endblock %}
+{% endblock hero %}
 
 {% block content %}
+<div class="text-employees">
+  <h1>Los mejores técnicos en un solo lugar</h1>
+  <p>Personas altamente capacitadas, con experiencia en múltiples áreas tecnológicas.</p>
+  <p>Entrenados para ofrecer soluciones tecnológicas innovadoras y eficientes.</p>
+</div>
+
 <article class="grid-gallery">
   <img src="{% static 'techbrosApp/img/delicuente.jpeg' %}" alt="description of picture 1">
   <img src="{% static 'techbrosApp/img/depression.jpeg' %}" alt="description of picture 2">
@@ -17,4 +23,9 @@
   <img src="{% static 'techbrosApp/img/sexy.jpeg' %}" alt="description of picture 8">
 </article>
 
-{% endblock %}
+
+{% block servicios %}
+  {% include 'techbrosApp/partials/servicios.html' %}
+{% endblock servicios %}
+
+{% endblock content %}

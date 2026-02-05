@@ -1,0 +1,305 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+/* ===============================
+   ESTILOS GENERALES
+================================ */
+body {
+    background-color: #E9F1FB !important;
+    font-family: 'Inter', sans-serif !important;
+    margin: 0;
+    padding: 0;
+}
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    background-color: transparent !important;
+    box-shadow: none;
+
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: #E9F1FB !important;
+    box-shadow: 0 4px 10px rgba(34, 32, 32, 0.3);
+}
+
+.navbar-logo {
+    position: absolute;
+    height: 160px;
+    width: auto;
+}
+.nav-link {
+    position: relative;
+    color: #000000 !important;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+/* línea oculta */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: width 0.3s ease;
+}
+
+/* animación izquierda → derecha */
+.nav-link:hover::after {
+    width: 100%;
+}
+/* ===============================
+   HERO
+================================ */
+.hero {
+    position: relative;
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    box-shadow: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* ===============================
+   HERO CONTENT (LOGO + BOTÓN)
+================================ */
+.hero-content {
+    
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    z-index: 3;
+}
+/* ===============================
+   HERO LOGO
+================================ */
+.hero-logo {
+    width: 820px;
+    height: auto;
+    opacity: 0;
+    animation: logoEntrada 1.6s ease-out forwards;
+}
+
+@keyframes logoEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* ===============================
+   HERO BOTÓN
+================================ */
+.hero-btn {
+    margin-top: 25px;
+
+    padding: 14px 34px;
+    border-radius: 40px;
+
+    background-color: #C3D7F4;
+    color: #000000;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    animation: botonEntrada 1.6s ease-out forwards;
+    animation-delay: 0.6s;
+
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #C3D7F4;
+}
+
+@keyframes botonEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.grid-gallery {
+  padding: 10px 100px 170px 100px;
+
+  --size: 100px;
+  display: grid;
+  grid-template-columns: repeat(6, var(--size));
+  grid-auto-rows: var(--size);
+  gap: 5px;
+
+  margin: 0 auto;
+  width: fit-content;
+
+  &:has(:hover) img:not(:hover),
+  &:has(:focus) img:not(:focus){
+    filter: brightness(0.5) contrast(0.5);
+  }
+
+  & img {
+    object-fit: cover;
+    width: calc(var(--size) * 2);
+    height: calc(var(--size) * 2);
+
+    /* estado inicial */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out,
+      clip-path 0.25s,
+      filter 0.75s;
+
+    clip-path: path("M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z");
+
+    grid-column: auto / span 2;
+    border-radius: 5px;
+
+    &:nth-child(5n - 1) { 
+      grid-column: 2 / span 2;
+    }
+
+    &:hover,
+    &:focus {
+      clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
+      z-index: 1;
+    }
+
+    &:focus {
+      outline: 1px dashed black;
+      outline-offset: -5px;
+    }
+  }
+}
+
+/* clase activada por JS */
+.grid-gallery img.show {
+  opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.8);
+  transform: translateY(0);
+}
+
+.text-employees {
+  max-width: 965px;     /* ajustá a gusto */
+  margin: 120px auto 40px auto;
+  
+  padding: 40px 20px;
+  padding-bottom: 0;
+  font-family: 'Roboto';
+  font-weight: 300;
+  text-align: center;
+}
+
+
+
+/* ---- TITULO ---- */
+.text-employees h1 {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+
+}
+
+/* ---- PARRAFOS ---- */
+.text-employees p {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: medium;
+  padding: 0;
+  opacity: 0;
+  width: 0;
+  transition: width 2s ease, opacity 1.2s ease;
+}
+
+/* ---- CLASES ACTIVADAS POR JS ---- */
+.text-employees.show h1 {
+  opacity: 1;
+  font-weight: bold;
+  transform: translateY(0);
+}
+
+.text-employees.show p {
+  opacity: 1;
+  line-height: 0.9;   /* ajusta a gusto */
+  margin: 3px 0;      /* espacio entre párrafos */
+  width: 100%;
+}
+/* === LISTAS CON FLECHA === */
+.services-intro{
+  background-color: #C3D7F4;
+}
+.services-intro ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.services-intro ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 8px;
+}
+
+.services-intro ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background-image: url("../img/chevron.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+/* sublistas un poco más sutiles */
+.services-intro ul ul li::before {
+  opacity: 0.7;
+  width: 12px;
+  height: 12px;
+}
+.serviciosTitulo {
+    opacity: 0;
+    margin-top: 70px;
+    text-align: center;
+    margin-bottom: 40px;
+    transition: opacity 1.5s ease;
+}
+
+.serviciosTitulo.show {
+    opacity: 1;
+}

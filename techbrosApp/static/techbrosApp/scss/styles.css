@@ -120,7 +120,7 @@ body {
   font-size: 18px;
   text-decoration: none;
   -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   border: 1px solid rgba(0, 0, 0, 0.2);
   opacity: 0;
   animation: botonEntrada 1.6s ease-out forwards;
@@ -155,14 +155,12 @@ body {
   width: -moz-fit-content;
   width: fit-content;
 }
-
 .grid-gallery:has(:hover) img:not(:hover), .grid-gallery:has(:focus) img:not(:focus) {
   filter: brightness(0.5) contrast(0.5);
 }
-
 .grid-gallery img {
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   width: calc(var(--size) * 2);
   height: calc(var(--size) * 2);
   /* estado inicial */
@@ -173,16 +171,13 @@ body {
   grid-column: auto/span 2;
   border-radius: 5px;
 }
-
 .grid-gallery img:nth-child(5n-1) {
   grid-column: 2/span 2;
 }
-
 .grid-gallery img:hover, .grid-gallery img:focus {
   clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
   z-index: 1;
 }
-
 .grid-gallery img:focus {
   outline: 1px dashed black;
   outline-offset: -5px;
@@ -283,6 +278,4 @@ body {
 
 .serviciosTitulo.show {
   opacity: 1;
-} 
-
-/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */
